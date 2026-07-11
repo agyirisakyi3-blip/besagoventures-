@@ -4,6 +4,7 @@ import "./globals.css";
 import { Navbar } from "@/components/blocks/navbar";
 import { Footer } from "@/components/blocks/footer";
 import { ScrollToTop } from "@/components/blocks/scroll-to-top";
+import { InstallPrompt } from "@/components/blocks/install-prompt";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -83,9 +84,13 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" href="/icons/icon-192x192.svg" type="image/svg+xml" />
-        <link rel="apple-touch-icon" href="/icons/icon-192x192.svg" />
+        <link rel="icon" href="/icons/icon-192x192.png" type="image/png" sizes="192x192" />
+        <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <meta name="apple-mobile-web-app-title" content="Besago Ventures" />
+        <link rel="apple-touch-startup-image" href="/icons/icon-512x512.png" />
       </head>
       <body className="min-h-full flex flex-col">
         <a href="#main-content" className="skip-link">
@@ -97,6 +102,7 @@ export default function RootLayout({
         </main>
         <Footer />
         <ScrollToTop />
+        <InstallPrompt />
       </body>
     </html>
   );
