@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/blocks/navbar";
@@ -35,7 +35,39 @@ export const metadata: Metadata = {
     description:
       "Your trusted partner in Real Estate, Automobile, Travel & Tours, and Import/Export.",
     type: "website",
+    siteName: "Besago Ventures",
+    locale: "en_US",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Besago Ventures",
+    description:
+      "Your trusted partner in Real Estate, Automobile, Travel & Tours, and Import/Export.",
+  },
+  manifest: "/manifest.json",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "black-translucent",
+    title: "Besago Ventures",
+  },
+  formatDetection: {
+    telephone: true,
+    email: true,
+  },
+  other: {
+    "mobile-web-app-capable": "yes",
+    "apple-mobile-web-app-status-bar-style": "black-translucent",
+    "theme-color": "#065f46",
+  },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#065f46",
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  userScalable: true,
+  viewportFit: "cover",
 };
 
 export default function RootLayout({
@@ -48,6 +80,13 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
+      <head>
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href="/icons/icon-192x192.svg" type="image/svg+xml" />
+        <link rel="apple-touch-icon" href="/icons/icon-192x192.svg" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+      </head>
       <body className="min-h-full flex flex-col">
         <a href="#main-content" className="skip-link">
           Skip to main content
