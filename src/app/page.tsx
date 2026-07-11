@@ -1,96 +1,59 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
+import * as React from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
 
 const services = [
   {
     icon: (
-      <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
       </svg>
     ),
     title: "Real Estate",
-    shortDesc: "Properties & Land",
-    description:
-      "Premium residential and commercial properties. From land acquisition to dream homes, we make real estate effortless.",
-    image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&q=80",
-    imageAlt: "Modern residential property",
+    description: "Premium residential and commercial properties. From land acquisition to dream homes.",
     href: "/services/real-estate",
   },
   {
     icon: (
-      <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 17h.01M16 17h.01M3 11l1.5-5A2 2 0 016.4 4h11.2a2 2 0 011.9 1.4L21 11M3 11h18M3 11v6a1 1 0 001 1h16a1 1 0 001-1v-6" />
       </svg>
     ),
     title: "Automobile",
-    shortDesc: "Cars & Vehicles",
-    description:
-      "Quality vehicles for every need. We source, supply, and deliver cars, trucks, and SUVs at competitive prices.",
-    image: "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=600&q=80",
-    imageAlt: "Quality automobile",
+    description: "Quality vehicles for every need. Cars, trucks, and SUVs at competitive prices.",
     href: "/services/automobile",
   },
   {
     icon: (
-      <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
       </svg>
     ),
     title: "Travel & Tours",
-    shortDesc: "Flights & Holidays",
-    description:
-      "Unforgettable travel experiences curated just for you. Flights, hotels, guided tours, and complete vacation packages.",
-    image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=80",
-    imageAlt: "Travel destination",
+    description: "Unforgettable travel experiences. Flights, hotels, guided tours, and vacation packages.",
     href: "/services/travel-tours",
   },
   {
     icon: (
-      <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
       </svg>
     ),
     title: "Import & Export",
-    shortDesc: "Global Trade",
-    description:
-      "Seamless global trade solutions. We handle procurement, logistics, and delivery of products across borders.",
-    image: "https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=600&q=80",
-    imageAlt: "Import and export logistics",
+    description: "Seamless global trade solutions. Procurement, logistics, and cross-border delivery.",
     href: "/services/import-export",
   },
 ];
 
 const stats = [
-  { value: "500+", label: "Clients Served", icon: "👥" },
-  { value: "10+", label: "Years Experience", icon: "🏆" },
-  { value: "50+", label: "Properties Sold", icon: "🏠" },
-  { value: "4", label: "Industry Sectors", icon: "🌐" },
-];
-
-const testimonials = [
-  {
-    name: "Kwame Asante",
-    role: "Real Estate Client",
-    rating: 5,
-    quote:
-      "Besago Ventures helped us find the perfect family home. Their professionalism and attention to detail exceeded our expectations. Highly recommended!",
-  },
-  {
-    name: "Ama Darko",
-    role: "Automobile Client",
-    rating: 5,
-    quote:
-      "I got an excellent deal on my car. The entire process was smooth, transparent, and delivered on time. I wouldn't go anywhere else!",
-  },
-  {
-    name: "John Mensah",
-    role: "Travel Client",
-    rating: 5,
-    quote:
-      "Our honeymoon trip to Zanzibar was flawlessly organized. Every detail was taken care of. We'll definitely use Besago again for our next adventure.",
-  },
+  { value: "500+", label: "Clients Served" },
+  { value: "10+", label: "Years Experience" },
+  { value: "50+", label: "Properties Sold" },
+  { value: "4", label: "Industry Sectors" },
 ];
 
 const whyUs = [
@@ -133,66 +96,176 @@ const whyUs = [
   },
 ];
 
+const testimonials = [
+  {
+    name: "Kwame Asante",
+    role: "Real Estate Client",
+    quote:
+      "Besago Ventures helped us find the perfect family home. Their professionalism and attention to detail exceeded our expectations.",
+  },
+  {
+    name: "Ama Darko",
+    role: "Automobile Client",
+    quote:
+      "I got an excellent deal on my car. The entire process was smooth, transparent, and delivered on time.",
+  },
+  {
+    name: "John Mensah",
+    role: "Travel Client",
+    quote:
+      "Our honeymoon trip to Zanzibar was flawlessly organized. Every detail was taken care of. We will definitely use Besago again.",
+  },
+];
+
+const industrySolutions = [
+  {
+    tab: "Real Estate",
+    title: "Smart Property Solutions",
+    description: "From residential homes to commercial developments, we provide end-to-end real estate services across Ghana.",
+    points: ["Residential property sales", "Commercial property leasing", "Land acquisition & development", "Property management"],
+    href: "/services/real-estate",
+  },
+  {
+    tab: "Automobile",
+    title: "Quality Vehicle Solutions",
+    description: "We source, supply, and deliver quality vehicles tailored to your needs and budget.",
+    points: ["New & pre-owned vehicles", "Corporate fleet acquisition", "Import & delivery", "After-sales support"],
+    href: "/services/automobile",
+  },
+  {
+    tab: "Travel & Tours",
+    title: "Curated Travel Experiences",
+    description: "Unforgettable journeys crafted with attention to every detail, from flights to accommodations.",
+    points: ["Flight bookings & packages", "Hotel reservations", "Guided tours & excursions", "Corporate travel management"],
+    href: "/services/travel-tours",
+  },
+  {
+    tab: "Import & Export",
+    title: "Global Trade facilitation",
+    description: "Seamless cross-border trade solutions with reliable logistics and competitive pricing.",
+    points: ["Product sourcing & procurement", "Customs clearance", "Shipping & logistics", "Quality assurance"],
+    href: "/services/import-export",
+  },
+];
+
+const successStories = [
+  {
+    category: "Real Estate",
+    title: "Premium Office Space in Airport City",
+    description: "Successfully acquired and fitted out a 5,000 sq ft office space for a multinational corporation entering the Ghanaian market.",
+  },
+  {
+    category: "Automobile",
+    title: "Corporate Fleet Acquisition",
+    description: "Delivered a fleet of 25 vehicles for a logistics company, handling import, registration, and delivery within 6 weeks.",
+  },
+  {
+    category: "Travel",
+    title: "Luxury Vacation Package to Dubai",
+    description: "Organized an all-inclusive luxury trip for 15 travelers, including flights, 5-star accommodations, and curated experiences.",
+  },
+];
+
+const trustedCompanies = [
+  "MTN Ghana", "Vodafone Ghana", "GOIL", "Ghana Water", "Ecobank",
+  "Stanbic Bank", "Telefonica", "Virtue Group", "FanMilk", "Ghana Gas",
+];
+
 export default function HomePage() {
+  const [activeTab, setActiveTab] = React.useState(0);
+  const [email, setEmail] = React.useState("");
+
   return (
     <>
-      {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-primary-dark via-primary to-primary-light text-white overflow-hidden min-h-[90vh] flex items-center">
-        <div className="absolute inset-0 hero-pattern" />
-        <Image
-          src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1920&q=80"
-          alt=""
-          fill
-          className="object-cover opacity-10"
-          priority
-        />
-        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-24 sm:py-32">
-          <div className="max-w-3xl">
-            <span className="inline-flex items-center gap-2 mb-6 px-5 py-2 rounded-full bg-white/10 text-secondary text-sm font-semibold border border-white/20 animate-fade-in-up">
-              <span className="w-2 h-2 rounded-full bg-secondary animate-pulse" />
-              Your Trusted Partner Since 2014
-            </span>
-            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold leading-[1.1] mb-6 animate-fade-in-up delay-100">
-              Building Futures,{" "}
-              <span className="gradient-text">Delivering Excellence</span>
-            </h1>
-            <p className="text-lg sm:text-xl text-white/80 mb-10 max-w-2xl leading-relaxed animate-fade-in-up delay-200">
-              Besago Ventures is a multi-sector company specializing in Real Estate,
-              Automobile, Travel & Tours, and Import/Export — committed to quality
-              and customer satisfaction across Ghana and beyond.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 animate-fade-in-up delay-300">
-              <Button size="xl" variant="secondary" className="animate-pulse-glow" asChild>
-                <Link href="/contact">
-                  Get a Free Consultation
-                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
+      {/* Section 1: Hero */}
+      <section className="relative min-h-[90vh] flex items-center overflow-hidden">
+        <div className="absolute inset-0 hero-mesh" />
+        <div className="absolute inset-0 grid-pattern opacity-40" />
+
+        {/* Floating geometric shapes */}
+        <div className="absolute top-20 right-[15%] w-64 h-64 rounded-full border border-white/5 animate-float" />
+        <div className="absolute bottom-32 right-[10%] w-40 h-40 rounded-2xl border border-secondary/10 rotate-45 animate-float [animation-delay:1s]" />
+        <div className="absolute top-[40%] right-[25%] w-20 h-20 rounded-full bg-secondary/5 animate-float [animation-delay:2s]" />
+
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-24 sm:py-32 w-full">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <span className="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full bg-white/5 text-secondary text-sm font-medium border border-white/10 animate-fade-in-up">
+                <span className="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse" />
+                Your Trusted Partner Since 2014
+              </span>
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-[1.1] mb-6 animate-fade-in-up delay-100">
+                Building Futures,{" "}
+                <span className="gradient-text">Delivering Excellence</span>
+              </h1>
+              <p className="text-lg text-white/60 mb-10 max-w-xl leading-relaxed animate-fade-in-up delay-200">
+                A multi-sector company specializing in Real Estate, Automobile, Travel & Tours, and Import/Export — committed to quality and customer satisfaction across Ghana and beyond.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 animate-fade-in-up delay-300">
+                <Button size="lg" variant="secondary" className="animate-pulse-glow" asChild>
+                  <Link href="/contact">
+                    Get a Free Consultation
+                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </Link>
+                </Button>
+                <Button size="lg" variant="outline" className="border-white/20 text-white hover:bg-white/10 hover:text-white" asChild>
+                  <Link href="/about">Learn About Us</Link>
+                </Button>
+              </div>
+            </div>
+
+            {/* Right side: Service icons grid */}
+            <div className="hidden lg:grid grid-cols-2 gap-4 animate-fade-in-up delay-400">
+              {services.map((service, i) => (
+                <Link key={service.title} href={service.href} className="group">
+                  <div className="enterprise-card p-6 text-center hover:border-secondary/20">
+                    <div className="w-14 h-14 rounded-2xl bg-secondary/10 text-secondary flex items-center justify-center mx-auto mb-4 group-hover:bg-secondary/20 transition-colors">
+                      {service.icon}
+                    </div>
+                    <h3 className="text-white font-semibold text-sm mb-1">{service.title}</h3>
+                    <p className="text-white/40 text-xs leading-relaxed">{service.description}</p>
+                  </div>
                 </Link>
-              </Button>
-              <Button size="xl" variant="outline" className="border-white/30 text-white hover:bg-white hover:text-primary" asChild>
-                <Link href="/about">Learn About Us</Link>
-              </Button>
+              ))}
             </div>
           </div>
         </div>
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white to-transparent" />
+
+        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent" />
       </section>
 
-      {/* Stats Bar */}
-      <section className="bg-white -mt-16 relative z-10 mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 bg-white rounded-2xl shadow-2xl border border-border/50 p-6 sm:p-8">
-          {stats.map((stat, i) => (
-            <div key={stat.label} className={`text-center py-2 ${i < stats.length - 1 ? "md:border-r md:border-border/50" : ""}`}>
-              <div className="text-2xl mb-1">{stat.icon}</div>
-              <div className="text-3xl sm:text-4xl font-bold text-primary">{stat.value}</div>
-              <div className="text-xs sm:text-sm text-muted-foreground mt-1 font-medium">{stat.label}</div>
-            </div>
-          ))}
+      {/* Section 2: Trusted By Logo Bar */}
+      <section className="bg-[#0f1729] py-6 border-y border-white/5 overflow-hidden">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <p className="text-center text-xs text-white/30 uppercase tracking-widest mb-6 font-medium">Trusted by leading organizations</p>
+          <div className="flex items-center justify-center gap-8 sm:gap-12 flex-wrap">
+            {trustedCompanies.map((company) => (
+              <span key={company} className="text-white/20 text-sm font-semibold tracking-wide hover:text-white/40 transition-colors cursor-default">
+                {company}
+              </span>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* Services Overview */}
+      {/* Section 3: Stats Bar */}
+      <section className="bg-[#0f1729] py-16 relative">
+        <div className="absolute inset-0 grid-pattern opacity-30" />
+        <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            {stats.map((stat, i) => (
+              <div key={stat.label} className={`text-center ${i < stats.length - 1 ? "md:border-r md:border-white/5" : ""}`}>
+                <div className="stat-number gradient-text mb-2">{stat.value}</div>
+                <div className="text-sm text-white/50 font-medium">{stat.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Section 4: Services */}
       <section className="py-20 sm:py-28">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -203,38 +276,26 @@ export default function HomePage() {
               Our Core Services
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-              We operate across four key sectors, delivering tailored solutions
-              that drive value for our clients.
+              We operate across four key sectors, delivering tailored solutions that drive value for our clients.
             </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {services.map((service) => (
               <Link key={service.title} href={service.href} className="group">
-                <Card className="h-full overflow-hidden card-hover border-border/50">
-                  <div className="relative h-48 overflow-hidden">
-                    <Image
-                      src={service.image}
-                      alt={service.imageAlt}
-                      fill
-                      className="object-cover group-hover:scale-110 transition-transform duration-500"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                    <div className="absolute bottom-4 left-4 right-4">
-                      <span className="text-white/90 text-xs font-semibold uppercase tracking-wider">
-                        {service.shortDesc}
-                      </span>
+                <Card className="h-full border-border/50 hover:border-primary/20 transition-all duration-300">
+                  <CardHeader className="pb-4">
+                    <div className="w-14 h-14 rounded-2xl bg-primary/10 text-primary flex items-center justify-center mb-3 group-hover:bg-primary group-hover:text-white transition-all duration-300">
+                      {service.icon}
                     </div>
-                  </div>
-                  <CardHeader className="pb-2">
                     <CardTitle className="group-hover:text-primary transition-colors text-lg">
                       {service.title}
                     </CardTitle>
                   </CardHeader>
                   <CardContent className="pt-0">
-                    <CardDescription className="text-sm leading-relaxed">
+                    <CardDescription className="text-sm leading-relaxed mb-4">
                       {service.description}
                     </CardDescription>
-                    <div className="mt-4 text-sm font-semibold text-primary flex items-center gap-1 group-hover:gap-3 transition-all duration-300">
+                    <div className="text-sm font-semibold text-primary flex items-center gap-1 group-hover:gap-3 transition-all duration-300">
                       Learn More
                       <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -248,8 +309,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Why Choose Us */}
-      <section className="py-20 sm:py-28 bg-gradient-to-b from-muted to-white">
+      {/* Section 5: Why Choose Us */}
+      <section className="py-20 sm:py-28 bg-muted/50">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
@@ -260,9 +321,7 @@ export default function HomePage() {
                 Trusted by Hundreds Across Ghana
               </h2>
               <p className="text-muted-foreground mb-8 text-lg leading-relaxed">
-                With over a decade of experience and a commitment to excellence,
-                Besago Ventures has earned the trust of clients across all four
-                sectors we serve.
+                With over a decade of experience and a commitment to excellence, Besago Ventures has earned the trust of clients across all four sectors we serve.
               </p>
               <div className="space-y-6">
                 {whyUs.map((item) => (
@@ -278,45 +337,30 @@ export default function HomePage() {
                 ))}
               </div>
             </div>
-            <div className="relative">
-              <div className="relative rounded-3xl overflow-hidden shadow-2xl aspect-[4/3]">
-                <Image
-                  src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80"
-                  alt="Besago Ventures modern office building"
-                  fill
-                  className="object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-primary-dark/40 to-transparent" />
-              </div>
-              <div className="absolute -bottom-6 -left-6 sm:-left-8 glass-dark text-white rounded-2xl p-6 shadow-xl">
-                <div className="text-3xl font-bold text-secondary">10+</div>
-                <div className="text-sm font-medium text-white/80">Years of Excellence</div>
-              </div>
-              <div className="absolute -top-4 -right-4 sm:-right-6 bg-secondary text-primary-dark rounded-2xl p-5 shadow-xl animate-float">
-                <div className="text-2xl font-bold">500+</div>
-                <div className="text-xs font-medium">Happy Clients</div>
-              </div>
+            <div className="grid grid-cols-2 gap-4">
+              {stats.map((stat) => (
+                <div key={stat.label} className="bg-primary-dark rounded-2xl p-6 text-center">
+                  <div className="text-3xl sm:text-4xl font-bold text-secondary mb-1">{stat.value}</div>
+                  <div className="text-sm text-white/60 font-medium">{stat.label}</div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
-      {/* Meet Our Founder */}
-      <section className="py-20 sm:py-28 bg-muted/50">
+      {/* Section 6: Meet Our Founder */}
+      <section className="py-20 sm:py-28 bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="relative order-2 lg:order-1">
-              <div className="relative rounded-3xl overflow-hidden shadow-2xl aspect-[4/5] max-w-md mx-auto">
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl aspect-[4/5] max-w-md mx-auto ring-2 ring-secondary/20 ring-offset-8 ring-offset-white">
                 <Image
                   src="/images/CEO.jpeg"
                   alt="Apostle Dr. Benedict Owusu — CEO & Founder of Besago Ventures"
                   fill
                   className="object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-primary-dark/60 via-transparent to-transparent" />
-              </div>
-              <div className="absolute -bottom-4 -right-4 sm:-right-6 bg-secondary text-primary-dark rounded-2xl p-4 shadow-xl">
-                <div className="text-sm font-bold">Founder & CEO</div>
               </div>
             </div>
             <div className="order-1 lg:order-2">
@@ -329,18 +373,14 @@ export default function HomePage() {
               <p className="text-secondary-dark font-semibold text-lg mb-6">
                 CEO & Founder, Besago Ventures
               </p>
-              <blockquote className="border-l-4 border-secondary pl-6 mb-8">
-                <p className="text-muted-foreground text-lg italic leading-relaxed">
-                  &ldquo;Our vision has always been to build a company that Ghanaians can trust — one
-                  that delivers quality, integrity, and lasting value across every sector we operate in.
-                  Besago Ventures is more than a business; it&apos;s a commitment to the people we serve.&rdquo;
+              <div className="mb-8">
+                <span className="text-6xl text-primary/10 font-serif leading-none">&ldquo;</span>
+                <p className="text-muted-foreground text-lg italic leading-relaxed -mt-4 pl-2">
+                  Our vision has always been to build a company that Ghanaians can trust — one that delivers quality, integrity, and lasting value across every sector we operate in.
                 </p>
-              </blockquote>
+              </div>
               <p className="text-muted-foreground leading-relaxed mb-8">
-                With over a decade of leadership, Apostle Dr. Owusu has grown Besago Ventures
-                from a single-sector operation into a thriving multi-sector enterprise serving
-                hundreds of clients across Ghana and beyond. His passion for excellence and
-                community impact drives everything we do.
+                With over a decade of leadership, Apostle Dr. Owusu has grown Besago Ventures from a single-sector operation into a thriving multi-sector enterprise serving hundreds of clients across Ghana and beyond.
               </p>
               <Button size="lg" variant="outline" asChild>
                 <Link href="/about">
@@ -355,8 +395,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Testimonials */}
-      <section className="py-20 sm:py-28 bg-white">
+      {/* Section 7: Testimonials */}
+      <section className="py-20 sm:py-28 bg-muted/50">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <span className="inline-block px-4 py-1.5 rounded-full bg-primary/5 text-primary text-xs font-bold uppercase tracking-widest mb-4">
@@ -366,27 +406,17 @@ export default function HomePage() {
               What Our Clients Say
             </h2>
             <p className="text-muted-foreground max-w-xl mx-auto text-lg">
-              Don&apos;t just take our word for it — hear from the people who&apos;ve
-              experienced the Besago difference.
+              Hear from the people who have experienced the Besago difference.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {testimonials.map((t) => (
-              <Card key={t.name} className="card-hover border-border/50 relative overflow-hidden">
+              <Card key={t.name} className="border-border/50 relative overflow-hidden">
                 <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary to-secondary" />
                 <CardContent className="pt-8 pb-6 px-6">
-                  <div className="flex items-center gap-0.5 mb-4">
-                    {Array.from({ length: t.rating }).map((_star, i) => (
-                      <svg key={i} className="w-4 h-4 text-secondary" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                      </svg>
-                    ))}
-                  </div>
-                  <svg className="w-10 h-10 text-primary/10 mb-3" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
-                  </svg>
+                  <span className="text-5xl text-primary/10 font-serif leading-none block mb-2">&ldquo;</span>
                   <p className="text-muted-foreground text-sm leading-relaxed mb-6 italic">
-                    &ldquo;{t.quote}&rdquo;
+                    {t.quote}
                   </p>
                   <div className="flex items-center gap-3 pt-4 border-t border-border/50">
                     <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-primary-dark flex items-center justify-center text-white text-sm font-bold">
@@ -404,25 +434,177 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* Section 8: Industry Solutions */}
+      <section className="py-20 sm:py-28 dark-section relative">
+        <div className="absolute inset-0 grid-pattern opacity-30" />
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <span className="inline-block px-4 py-1.5 rounded-full bg-white/5 text-secondary text-xs font-bold uppercase tracking-widest mb-4">
+              Solutions
+            </span>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
+              Built for Real-World Needs
+            </h2>
+            <p className="text-white/50 max-w-2xl mx-auto text-lg">
+              See how our services power success across every sector we operate in.
+            </p>
+          </div>
+
+          {/* Tabs */}
+          <div className="flex justify-center gap-2 mb-12 flex-wrap">
+            {industrySolutions.map((solution, i) => (
+              <button
+                key={solution.tab}
+                onClick={() => setActiveTab(i)}
+                className={`px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 ${
+                  activeTab === i
+                    ? "bg-secondary text-primary-dark"
+                    : "bg-white/5 text-white/50 hover:bg-white/10 hover:text-white/80"
+                }`}
+              >
+                {solution.tab}
+              </button>
+            ))}
+          </div>
+
+          {/* Tab Content */}
+          <div className="enterprise-card p-8 sm:p-12">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+              <div>
+                <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4">
+                  {industrySolutions[activeTab].title}
+                </h3>
+                <p className="text-white/60 mb-8 leading-relaxed">
+                  {industrySolutions[activeTab].description}
+                </p>
+                <ul className="space-y-3 mb-8">
+                  {industrySolutions[activeTab].points.map((point) => (
+                    <li key={point} className="flex items-center gap-3 text-white/70">
+                      <svg className="w-5 h-5 text-secondary shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
+                      {point}
+                    </li>
+                  ))}
+                </ul>
+                <Button size="lg" variant="secondary" asChild>
+                  <Link href={industrySolutions[activeTab].href}>
+                    Learn More
+                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </Link>
+                </Button>
+              </div>
+              <div className="hidden lg:flex items-center justify-center">
+                <div className="w-64 h-64 rounded-3xl bg-white/5 border border-white/10 flex items-center justify-center">
+                  <div className="text-secondary/30">
+                    {industrySolutions[activeTab].tab === "Real Estate" && (
+                      <svg className="w-24 h-24" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                      </svg>
+                    )}
+                    {industrySolutions[activeTab].tab === "Automobile" && (
+                      <svg className="w-24 h-24" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M8 17h.01M16 17h.01M3 11l1.5-5A2 2 0 016.4 4h11.2a2 2 0 011.9 1.4L21 11M3 11h18M3 11v6a1 1 0 001 1h16a1 1 0 001-1v-6" />
+                      </svg>
+                    )}
+                    {industrySolutions[activeTab].tab === "Travel & Tours" && (
+                      <svg className="w-24 h-24" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                    )}
+                    {industrySolutions[activeTab].tab === "Import & Export" && (
+                      <svg className="w-24 h-24" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                    )}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Section 9: Success Stories */}
+      <section className="py-20 sm:py-28 dark-section relative">
+        <div className="absolute inset-0 grid-pattern opacity-20" />
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <span className="inline-block px-4 py-1.5 rounded-full bg-white/5 text-secondary text-xs font-bold uppercase tracking-widest mb-4">
+              Success Stories
+            </span>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
+              Confident Decisions, Real Results
+            </h2>
+            <p className="text-white/50 max-w-2xl mx-auto text-lg">
+              See how we have helped organizations achieve their goals.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {successStories.map((story) => (
+              <div key={story.title} className="enterprise-card p-8 group hover:border-secondary/20">
+                <span className="inline-block px-3 py-1 rounded-full bg-secondary/10 text-secondary text-xs font-semibold mb-4">
+                  {story.category}
+                </span>
+                <h3 className="text-white text-xl font-bold mb-3 group-hover:text-secondary transition-colors">
+                  {story.title}
+                </h3>
+                <p className="text-white/50 text-sm leading-relaxed mb-6">
+                  {story.description}
+                </p>
+                <div className="text-sm font-semibold text-secondary flex items-center gap-1 group-hover:gap-3 transition-all duration-300">
+                  Read more
+                  <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Section 10: Newsletter */}
+      <section className="py-20 sm:py-28 bg-[#0a1628] relative">
+        <div className="absolute inset-0 grid-pattern opacity-30" />
+        <div className="relative mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
+            Stay Updated
+          </h2>
+          <p className="text-white/50 mb-8 text-lg">
+            Get the latest news, insights, and updates from Besago Ventures.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+            <input
+              type="email"
+              placeholder="Enter your email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="flex-1 h-12 px-4 rounded-lg bg-white/5 border border-white/10 text-white placeholder:text-white/30 text-sm focus:outline-none focus:ring-2 focus:ring-secondary/50 focus:border-transparent"
+            />
+            <Button size="lg" variant="secondary" className="shrink-0">
+              Subscribe
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Section 11: CTA */}
       <section className="relative py-24 sm:py-32 overflow-hidden">
-        <Image
-          src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1920&q=80"
-          alt="Modern office workspace"
-          fill
-          className="object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-primary-dark/90 via-primary/85 to-primary-light/80" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0a1628] via-[#064e3b] to-[#0a1628]" />
+        <div className="absolute inset-0 grid-pattern opacity-20" />
+        <div className="absolute top-0 left-0 right-0 section-divider" />
         <div className="relative mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
-          <span className="inline-block px-4 py-1.5 rounded-full bg-white/10 text-secondary text-sm font-semibold border border-white/20 mb-6">
+          <span className="inline-block px-4 py-1.5 rounded-full bg-white/5 text-secondary text-sm font-semibold border border-white/10 mb-6">
             Let&apos;s Work Together
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
             Ready to Start Your Journey?
           </h2>
-          <p className="text-lg sm:text-xl text-white/80 mb-10 max-w-2xl mx-auto leading-relaxed">
-            Whether you&apos;re looking for a new home, a reliable vehicle, an unforgettable trip,
-            or a trusted trade partner — Besago Ventures is here for you.
+          <p className="text-lg sm:text-xl text-white/60 mb-10 max-w-2xl mx-auto leading-relaxed">
+            Whether you&apos;re looking for a new home, a reliable vehicle, an unforgettable trip, or a trusted trade partner — Besago Ventures is here for you.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="xl" variant="secondary" className="text-base" asChild>
@@ -436,7 +618,7 @@ export default function HomePage() {
             <Button
               size="xl"
               variant="outline"
-              className="border-white/30 text-white hover:bg-white hover:text-primary text-base"
+              className="border-white/20 text-white hover:bg-white/10 text-base"
               asChild
             >
               <a href="tel:+233594472033">

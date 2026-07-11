@@ -14,6 +14,12 @@
   --border: #e5e7eb;
   --ring: #065f46;
   --radius: 0.75rem;
+  --hero-start: #0a1628;
+  --hero-mid: #0d2137;
+  --hero-end: #064e3b;
+  --surface-dark: #0f1729;
+  --surface-card: rgba(255, 255, 255, 0.04);
+  --glow-primary: rgba(6, 95, 70, 0.15);
 }
 
 @theme inline {
@@ -241,6 +247,65 @@ body {
 .hero-pattern {
   background-image: radial-gradient(circle at 25% 25%, rgba(212, 175, 55, 0.08) 0%, transparent 50%),
                     radial-gradient(circle at 75% 75%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+}
+
+/* Enterprise dark section */
+.dark-section {
+  background: var(--surface-dark);
+  color: white;
+}
+
+/* Hero mesh gradient */
+.hero-mesh {
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(6, 95, 70, 0.15) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(212, 175, 55, 0.08) 0%, transparent 40%),
+    radial-gradient(ellipse at 60% 80%, rgba(5, 150, 105, 0.1) 0%, transparent 45%),
+    linear-gradient(135deg, var(--hero-start) 0%, var(--hero-mid) 40%, var(--hero-end) 100%);
+}
+
+/* Enterprise glass card on dark backgrounds */
+.enterprise-card {
+  background: var(--surface-card);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 1rem;
+  transition: all 0.3s ease;
+}
+
+.enterprise-card:hover {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+/* Large stat number */
+.stat-number {
+  font-size: 3rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+/* Grid dot pattern overlay */
+.grid-pattern {
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+/* Section divider gradient line */
+.section-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.3), transparent);
+}
+
+/* Logo scroll animation */
+@keyframes scroll-logos {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-scroll-logos {
+  animation: scroll-logos 30s linear infinite;
 }
 
 /* Smooth section transitions */
