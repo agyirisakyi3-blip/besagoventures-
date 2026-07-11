@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
 
@@ -28,245 +30,124 @@ const socials = [
 export function Footer() {
   return (
     <footer className="bg-primary-dark text-white" role="contentinfo">
-      {/* Top gradient accent */}
       <div className="h-[3px] bg-gradient-to-r from-transparent via-secondary to-transparent" />
-
-      {/* Main footer content */}
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-16 pb-8">
-        {/* Top row: brand + newsletter CTA */}
         <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-10 mb-14">
-          {/* Brand column */}
           <div className="max-w-sm">
             <Link href="/" className="flex items-center gap-3 mb-5 group" aria-label="Besago Ventures Home">
-              <Image
-                src="/images/logo.jpeg"
-                alt="Besago Ventures logo"
-                width={42}
-                height={42}
-                className="rounded-xl group-hover:scale-105 transition-transform duration-200"
-              />
-              <span className="text-xl font-bold text-white">
-                Besago<span className="text-secondary">Ventures</span>
-              </span>
+              <Image src="/images/logo.jpeg" alt="Besago Ventures logo" width={42} height={42} className="rounded-xl group-hover:scale-105 transition-transform duration-200" />
+              <span className="text-xl font-bold text-white">Besago<span className="text-secondary">Ventures</span></span>
             </Link>
             <p className="text-sm text-white/55 leading-relaxed mb-7">
               Your trusted partner in Real Estate, Automobile, Travel &amp; Tours, and Import/Export — building futures and delivering excellence since 2014.
             </p>
-            {/* Social icons */}
             <div className="flex gap-2.5">
               {socials.map((social) => (
-                <a
-                  key={social.label}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={social.label}
-                  className="group/icon relative w-10 h-10 rounded-xl bg-white/[0.06] flex items-center justify-center text-white/50 hover:bg-secondary hover:text-primary-dark transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-secondary/20"
-                >
-                  <svg
-                    className="w-[18px] h-[18px]"
-                    viewBox="0 0 24 24"
-                    fill={social.label === "WhatsApp" || social.label === "GitHub" || social.label === "Venmo" ? "currentColor" : "none"}
-                    stroke={social.label === "WhatsApp" || social.label === "GitHub" || social.label === "Venmo" ? "none" : "currentColor"}
-                    strokeWidth={social.label === "WhatsApp" || social.label === "GitHub" || social.label === "Venmo" ? 0 : 1.5}
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
+                <a key={social.label} href={social.href} target="_blank" rel="noopener noreferrer" aria-label={social.label} className="group/icon relative w-10 h-10 rounded-xl bg-white/[0.06] flex items-center justify-center text-white/50 hover:bg-secondary hover:text-primary-dark transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-secondary/20">
+                  <svg className="w-[18px] h-[18px]" viewBox="0 0 24 24" fill={social.label === "WhatsApp" || social.label === "GitHub" || social.label === "Venmo" ? "currentColor" : "none"} stroke={social.label === "WhatsApp" || social.label === "GitHub" || social.label === "Venmo" ? "none" : "currentColor"} strokeWidth={social.label === "WhatsApp" || social.label === "GitHub" || social.label === "Venmo" ? 0 : 1.5} strokeLinecap="round" strokeLinejoin="round">
                     <path d={social.path} />
                   </svg>
-                  {/* Tooltip */}
-                  <span className="pointer-events-none absolute -top-9 left-1/2 -translate-x-1/2 px-2.5 py-1 rounded-lg bg-gray-900 text-[11px] font-medium text-white opacity-0 group-hover/icon:opacity-100 transition-opacity duration-200 whitespace-nowrap">
-                    {social.label}
-                  </span>
+                  <span className="pointer-events-none absolute -top-9 left-1/2 -translate-x-1/2 px-2.5 py-1 rounded-lg bg-gray-900 text-[11px] font-medium text-white opacity-0 group-hover/icon:opacity-100 transition-opacity duration-200 whitespace-nowrap">{social.label}</span>
                 </a>
               ))}
             </div>
           </div>
-
-          {/* Newsletter CTA */}
           <div className="lg:max-w-md w-full">
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-secondary mb-3">
-              Stay Updated
-            </h3>
-            <p className="text-sm text-white/50 mb-4">
-              Get the latest news on properties, vehicles, and travel deals.
-            </p>
+            <h3 className="text-sm font-semibold uppercase tracking-wider text-secondary mb-3">Stay Updated</h3>
+            <p className="text-sm text-white/50 mb-4">Get the latest news on properties, vehicles, and travel deals.</p>
             <form className="flex gap-2" onSubmit={(e) => e.preventDefault()}>
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="flex-1 px-4 py-3 rounded-xl bg-white/[0.06] border border-white/10 text-sm text-white placeholder:text-white/35 focus:outline-none focus:border-secondary/50 focus:ring-1 focus:ring-secondary/30 transition-all duration-200"
-                aria-label="Email address"
-              />
-              <button
-                type="submit"
-                className="px-6 py-3 rounded-xl bg-secondary text-primary-dark text-sm font-semibold hover:bg-secondary-light active:scale-[0.97] transition-all duration-200 whitespace-nowrap"
-              >
-                Subscribe
-              </button>
+              <input type="email" placeholder="Enter your email" className="flex-1 px-4 py-3 rounded-xl bg-white/[0.06] border border-white/10 text-sm text-white placeholder:text-white/35 focus:outline-none focus:border-secondary/50 focus:ring-1 focus:ring-secondary/30 transition-all duration-200" aria-label="Email address" />
+              <button type="submit" className="px-6 py-3 rounded-xl bg-secondary text-primary-dark text-sm font-semibold hover:bg-secondary-light active:scale-[0.97] transition-all duration-200 whitespace-nowrap">Subscribe</button>
             </form>
           </div>
         </div>
-
-        {/* Divider */}
         <div className="h-px bg-white/[0.07] mb-10" />
-
-        {/* Links grid */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12 mb-10">
-          {/* Services */}
           <div>
-            <h3 className="text-xs font-semibold uppercase tracking-[0.15em] text-white/40 mb-5">
-              Services
-            </h3>
+            <h3 className="text-xs font-semibold uppercase tracking-[0.15em] text-white/40 mb-5">Services</h3>
             <ul className="space-y-3">
               {footerLinks.services.map((link) => (
                 <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="group/link block"
-                  >
+                  <Link href={link.href} className="group/link block">
                     <span className="text-sm text-white/60 group-hover/link:text-white transition-colors duration-200 flex items-center gap-1.5">
-                      <svg className="w-3 h-3 opacity-0 -ml-4 group-hover/link:opacity-100 group-hover/link:ml-0 transition-all duration-200 text-secondary" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                        <path d="M5 12h14M12 5l7 7-7 7" />
-                      </svg>
+                      <svg className="w-3 h-3 opacity-0 -ml-4 group-hover/link:opacity-100 group-hover/link:ml-0 transition-all duration-200 text-secondary" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
                       {link.label}
                     </span>
-                    <span className="text-[11px] text-white/30 mt-0.5 block group-hover/link:text-white/50 transition-colors duration-200">
-                      {link.desc}
-                    </span>
+                    <span className="text-[11px] text-white/30 mt-0.5 block group-hover/link:text-white/50 transition-colors duration-200">{link.desc}</span>
                   </Link>
                 </li>
               ))}
             </ul>
           </div>
-
-          {/* Company */}
           <div>
-            <h3 className="text-xs font-semibold uppercase tracking-[0.15em] text-white/40 mb-5">
-              Company
-            </h3>
+            <h3 className="text-xs font-semibold uppercase tracking-[0.15em] text-white/40 mb-5">Company</h3>
             <ul className="space-y-3">
               {footerLinks.company.map((link) => (
                 <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="group/link block"
-                  >
+                  <Link href={link.href} className="group/link block">
                     <span className="text-sm text-white/60 group-hover/link:text-white transition-colors duration-200 flex items-center gap-1.5">
-                      <svg className="w-3 h-3 opacity-0 -ml-4 group-hover/link:opacity-100 group-hover/link:ml-0 transition-all duration-200 text-secondary" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                        <path d="M5 12h14M12 5l7 7-7 7" />
-                      </svg>
+                      <svg className="w-3 h-3 opacity-0 -ml-4 group-hover/link:opacity-100 group-hover/link:ml-0 transition-all duration-200 text-secondary" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
                       {link.label}
                     </span>
-                    <span className="text-[11px] text-white/30 mt-0.5 block group-hover/link:text-white/50 transition-colors duration-200">
-                      {link.desc}
-                    </span>
+                    <span className="text-[11px] text-white/30 mt-0.5 block group-hover/link:text-white/50 transition-colors duration-200">{link.desc}</span>
                   </Link>
                 </li>
               ))}
             </ul>
           </div>
-
-          {/* Contact */}
           <div>
-            <h3 className="text-xs font-semibold uppercase tracking-[0.15em] text-white/40 mb-5">
-              Contact
-            </h3>
+            <h3 className="text-xs font-semibold uppercase tracking-[0.15em] text-white/40 mb-5">Contact</h3>
             <ul className="space-y-4 text-sm text-white/55">
               <li className="flex items-start gap-3 group/item">
                 <div className="w-8 h-8 rounded-lg bg-white/[0.05] flex items-center justify-center shrink-0 mt-0.5 group-hover/item:bg-secondary/10 transition-colors duration-200">
-                  <svg className="w-4 h-4 text-white/40" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                  </svg>
+                  <svg className="w-4 h-4 text-white/40" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
                 </div>
                 <span className="pt-1.5">Accra, Ghana</span>
               </li>
               <li className="flex items-start gap-3 group/item">
                 <div className="w-8 h-8 rounded-lg bg-white/[0.05] flex items-center justify-center shrink-0 mt-0.5 group-hover/item:bg-secondary/10 transition-colors duration-200">
-                  <svg className="w-4 h-4 text-white/40" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                  </svg>
+                  <svg className="w-4 h-4 text-white/40" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
                 </div>
-                <a href="mailto:info@besagoventures.com" className="hover:text-white transition-colors pt-1.5">
-                  info@besagoventures.com
-                </a>
+                <a href="mailto:info@besagoventures.com" className="hover:text-white transition-colors pt-1.5">info@besagoventures.com</a>
               </li>
               <li className="flex items-start gap-3 group/item">
                 <div className="w-8 h-8 rounded-lg bg-white/[0.05] flex items-center justify-center shrink-0 mt-0.5 group-hover/item:bg-secondary/10 transition-colors duration-200">
-                  <svg className="w-4 h-4 text-white/40" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                  </svg>
+                  <svg className="w-4 h-4 text-white/40" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
                 </div>
-                <a href="tel:+233243709721" className="hover:text-white transition-colors pt-1.5">
-                  +233 243 709 721
-                </a>
+                <a href="tel:+233243709721" className="hover:text-white transition-colors pt-1.5">+233 243 709 721</a>
               </li>
             </ul>
           </div>
-
-          {/* Trust badges */}
           <div>
-            <h3 className="text-xs font-semibold uppercase tracking-[0.15em] text-white/40 mb-5">
-              Trust &amp; Safety
-            </h3>
+            <h3 className="text-xs font-semibold uppercase tracking-[0.15em] text-white/40 mb-5">Trust &amp; Safety</h3>
             <ul className="space-y-3">
-              <li className="flex items-center gap-3 text-sm text-white/50">
-                <div className="w-8 h-8 rounded-lg bg-white/[0.05] flex items-center justify-center shrink-0">
-                  <svg className="w-4 h-4 text-secondary" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                  </svg>
-                </div>
-                <span>Verified Business</span>
-              </li>
-              <li className="flex items-center gap-3 text-sm text-white/50">
-                <div className="w-8 h-8 rounded-lg bg-white/[0.05] flex items-center justify-center shrink-0">
-                  <svg className="w-4 h-4 text-secondary" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                  </svg>
-                </div>
-                <span>Secure Transactions</span>
-              </li>
-              <li className="flex items-center gap-3 text-sm text-white/50">
-                <div className="w-8 h-8 rounded-lg bg-white/[0.05] flex items-center justify-center shrink-0">
-                  <svg className="w-4 h-4 text-secondary" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                </div>
-                <span>Since 2014</span>
-              </li>
-              <li className="flex items-center gap-3 text-sm text-white/50">
-                <div className="w-8 h-8 rounded-lg bg-white/[0.05] flex items-center justify-center shrink-0">
-                  <svg className="w-4 h-4 text-secondary" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                  </svg>
-                </div>
-                <span>100+ Happy Clients</span>
-              </li>
+              {[
+                { icon: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z", label: "Verified Business" },
+                { icon: "M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z", label: "Secure Transactions" },
+                { icon: "M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z", label: "Since 2014" },
+                { icon: "M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z", label: "100+ Happy Clients" },
+              ].map((item) => (
+                <li key={item.label} className="flex items-center gap-3 text-sm text-white/50">
+                  <div className="w-8 h-8 rounded-lg bg-white/[0.05] flex items-center justify-center shrink-0">
+                    <svg className="w-4 h-4 text-secondary" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d={item.icon} /></svg>
+                  </div>
+                  <span>{item.label}</span>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
-
-        {/* Bottom bar */}
         <div className="h-px bg-white/[0.07] mb-6" />
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-white/35">
-            &copy; {new Date().getFullYear()} Besago Ventures Ltd. All rights reserved. Registered in Ghana.
-          </p>
+          <p className="text-xs text-white/35">&copy; {new Date().getFullYear()} Besago Ventures Ltd. All rights reserved. Registered in Ghana.</p>
           <div className="flex items-center gap-5 text-xs text-white/35">
             <Link href="/about" className="hover:text-white/60 transition-colors duration-200">Privacy Policy</Link>
             <span className="text-white/10">|</span>
             <Link href="/about" className="hover:text-white/60 transition-colors duration-200">Terms of Service</Link>
             <span className="text-white/10">|</span>
-            <button
-              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-              className="group/btt flex items-center gap-1.5 hover:text-secondary transition-colors duration-200"
-              aria-label="Back to top"
-            >
+            <button onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className="group/btt flex items-center gap-1.5 hover:text-secondary transition-colors duration-200" aria-label="Back to top">
               Back to top
-              <svg className="w-3.5 h-3.5 -rotate-90 group-hover/btt:-translate-y-0.5 transition-transform duration-200" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M5 12h14M12 5l7 7-7 7" />
-              </svg>
+              <svg className="w-3.5 h-3.5 -rotate-90 group-hover/btt:-translate-y-0.5 transition-transform duration-200" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
             </button>
           </div>
         </div>
