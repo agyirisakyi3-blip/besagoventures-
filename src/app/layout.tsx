@@ -5,6 +5,7 @@ import { Navbar } from "@/components/blocks/navbar";
 import { Footer } from "@/components/blocks/footer";
 import { ScrollToTop } from "@/components/blocks/scroll-to-top";
 import { InstallPrompt } from "@/components/blocks/install-prompt";
+import { WhatsAppButton } from "@/components/blocks/whatsapp-button";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -101,6 +102,7 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
+        <WhatsAppButton />
         <ScrollToTop />
         <InstallPrompt />
       </body>
